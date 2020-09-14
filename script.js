@@ -9,7 +9,7 @@ let particlesArray;
 let mouse = {
     x : null,
     y : null,
-    radius : (canvas.height/100) * (canvas.width/100)
+    radius : (canvas.height/80) * (canvas.width/80),
 };
 
 window.addEventListener('mousemove',
@@ -71,7 +71,7 @@ class Particle {
 
 function init() {
     particlesArray = [];
-    let numberOfParticles = (canvas.height * canvas.width) / 5000;
+    let numberOfParticles = (canvas.height * canvas.width) / 2500;
     for(let i =0; i < numberOfParticles; i++){
         let size = (Math.random()*5)+1;
         let x = (Math.random() * ((innerWidth - size *2) - (size*2)) + size * 2);
@@ -84,17 +84,8 @@ function init() {
     }
 }
 
-function animate() {
-    requestAnimationFrame(animate);
-    ctx.clearRect(0,0,innerWidth,innerHeight);
-
-    for (let i = 0; i < particlesArray.length; i++){
-        particlesArray[i].update();
-    }
-    connect();
-}
-
 function connect(){
+    let opacityVal = 1;
     for(let i = 0; i < particlesArray.length; i++){
         for(let j = 0; j < particlesArray.length; j++){
             let distance =((particlesArray[i].x - particlesArray[j].x)
@@ -102,7 +93,8 @@ function connect(){
             + ((particlesArray[i].y - particlesArray[j].y)
             * (particlesArray[i].y - particlesArray[j].y));
             if(distance < (canvas.width/7)*(canvas.height/7)){
-                ctx.strokeStyle= 'rgba(0,150,250,1)';
+                opacityVal = 1 - (distance/10000);
+                ctx.strokeStyle= 'rgba(0,150,250, '+ opacityVal +')';
                 ctx.lineWidth= 1;
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
@@ -112,6 +104,33 @@ function connect(){
         }
     }
 }
+
+function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+
+    for (let i = 0; i < particlesArray.length; i++){
+        particlesArray[i].update();
+    }
+    connect();
+    document.body.style.background = "#000000 url('"+ canvas.toDataURL()+"')"
+}
+
+window.addEventListener('resize',
+    function(){
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+        mouse.radius = (canvas.height/80) * (canvas.width/80);
+        init();
+    }
+);
+
+window.addEventListener('mouseout',
+    function(){
+        mouse.x = undefined;
+        mouse.y = undefined;
+    }
+);
 
 init();
 animate();
