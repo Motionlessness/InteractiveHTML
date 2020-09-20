@@ -1,15 +1,15 @@
 .card{
     position: absolute;
-    background-color: rgba(110, 110, 110, .5);
-    box-shadow: 0 4px 8px 0 rgba(255,0,255,.45);
+    background-color: rgba(0, 0, 255, .25);
+    box-shadow: 0 4px 8px 0 rgba(66,0,255,.45);
     transition: 0.2s;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
 }
 .card:hover{
-    background-color: thistle;
-    box-shadow: 0 8px 16px 0 rgba(150,50,150,1);
+    background-color: rgba(66, 0, 255, 1);
+    box-shadow: 0 8px 16px 0 rgba(66,0,255,1);
 }
 .container{
     padding: 2 4;

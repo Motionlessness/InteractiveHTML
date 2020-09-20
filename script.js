@@ -32,7 +32,7 @@ class Particle {
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = 'gold';
+        ctx.fillStyle = 'rgba(200,0,66,.65)';
         ctx.fill();
     }
 
@@ -71,7 +71,7 @@ class Particle {
 
 function init() {
     particlesArray = [];
-    let numberOfParticles = (canvas.height * canvas.width) / 2500;
+    let numberOfParticles = (canvas.height * canvas.width) / 5000;
     for(let i =0; i < numberOfParticles; i++){
         let size = (Math.random()*5)+1;
         let x = (Math.random() * ((innerWidth - size *2) - (size*2)) + size * 2);
