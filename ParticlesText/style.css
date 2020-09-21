@@ -7,7 +7,7 @@
 body{
     overflow: hidden;
     background:  rgba(0,0,0,1);
-    filter: blur(4px);
+    filter: blur(3px);
 }
 
 #canvas1{
