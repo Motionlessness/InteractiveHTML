@@ -22,9 +22,9 @@ window.addEventListener('mousemove', function(event){
 });
 
 let gradient = ctx.createLinearGradient(0,0,canvas.width,0);
-gradient.addColorStop('0','rgba(66,0,255,1)');
-gradient.addColorStop('0.5','rgba(132,0,127,1)');
-gradient.addColorStop('1.0','rgba(255,0,0,1)');
+gradient.addColorStop('0','rgba(20,0,0,1)');
+gradient.addColorStop('0.2','rgba(50,0,0,1)');
+gradient.addColorStop('1','rgba(20,0,0,1)');
 
 ctx.fillStyle = gradient;
 ctx.font = '30px Verdana';
@@ -36,10 +36,10 @@ class Particle {
     constructor(x, y){
         this.x = x;
         this.y = y;
-        this.size = 3;
+        this.size = 0;
         this.baseX = this.x;
         this.baseY = this.y;
-        this.density = (Math.random() * 30)+1;
+        this.density = (Math.random() * 95)+1;
     }
 
     draw(){
@@ -103,17 +103,16 @@ function animate(){
 animate();
 
 function connect(){
-    let opacVal = 1;
     for(let i = 0; i < particleArray.length; i++){
         for(let j = i; j < particleArray.length; j++){
             let dx = particleArray[i].x - particleArray[j].x;
             let dy = particleArray[i].y - particleArray[j].y;
             let distance = Math.sqrt(dx*dx + dy*dy);
 
-            if(distance < 25){
-                opacVal = 1 - (distance/50);
+            if(distance < 20){
                 ctx.strokeStyle = gradient;
-                ctx.lineWidth = 6;
+                ctx.lineWidth = 8;
+                ctx.lineCap = 'round';
                 ctx.beginPath();
                 ctx.moveTo(particleArray[i].x, particleArray[i].y);
                 ctx.lineTo(particleArray[j].x, particleArray[j].y);
