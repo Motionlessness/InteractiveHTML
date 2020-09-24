@@ -33,6 +33,16 @@
             </nav>
         </div>
     </div>
+    <svg>
+        <defs>
+            <filter id="liquid">
+                <feGaussianBlur in="SourceGraphic"
+                stdDeviation='10' result='blur'/>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 19 -9" result="liquid"/>
+                <feComposite in="SourceGraphic" in2="liquid" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
     <canvas style="display: none" id="canvas1"></canvas>
     <script src="script.js"></script>
 </body>
