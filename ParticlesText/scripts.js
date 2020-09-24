@@ -22,9 +22,8 @@ window.addEventListener('mousemove', function(event){
 });
 
 let gradient = ctx.createLinearGradient(0,0,canvas.width,0);
-gradient.addColorStop('0','rgba(20,0,0,1)');
-gradient.addColorStop('0.2','rgba(50,0,0,1)');
-gradient.addColorStop('1','rgba(20,0,0,1)');
+gradient.addColorStop('0','rgba(25,0,0,1)');
+gradient.addColorStop('1','rgba(25,0,0,1)');
 
 ctx.fillStyle = gradient;
 ctx.font = '30px Verdana';
@@ -111,7 +110,7 @@ function connect(){
 
             if(distance < 20){
                 ctx.strokeStyle = gradient;
-                ctx.lineWidth = 8;
+                ctx.lineWidth = 10;
                 ctx.lineCap = 'round';
                 ctx.beginPath();
                 ctx.moveTo(particleArray[i].x, particleArray[i].y);
