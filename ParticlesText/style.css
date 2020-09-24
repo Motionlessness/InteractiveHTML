@@ -7,7 +7,7 @@
 body{
     overflow: hidden;
     background:  rgba(0,0,0,1);
-    filter: blur(2px);
+    filter:url('#liquid');
 }
 
 #svg1{
@@ -17,13 +17,10 @@ body{
     left: 40%;
 }
 
-#canvas1:hover{
-    filter:contrast(100%);
-}
 
 #canvas1{
     position: absolute;
     top: 0;
     left: 0;
-    filter: contrast(22%);
+    filter: drop-shadow(5px 5px rgba(20,0,0,1));
 }

@@ -10,7 +10,16 @@
     <div id="canvasDiv">
         <canvas id="canvas1"></canvas>
     </div>
-    
+    <svg>
+        <defs>
+            <filter id="liquid">
+                <feGaussianBlur in="SourceGraphic"
+                stdDeviation='10' result='blur'/>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 19 -9" result="liquid"/>
+                <feComposite in="SourceGraphic" in2="liquid" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
     <svg id="svg1" height="210" width="500">
         <polygon points="100,10 40,198 190,78 10,78 160,198" style="stroke:rgba(66,0,255,.5);stroke-width:2;fill-rule:nonzero;"/>
         Sorry, your browser does not support inline SVG.

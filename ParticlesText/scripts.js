@@ -39,7 +39,7 @@ class Particle {
         this.size = 0;
         this.baseX = this.x;
         this.baseY = this.y;
-        this.density = (Math.random() * 95)+1;
+        this.density = (Math.random() * 50)+.5;
     }
 
     draw(){
