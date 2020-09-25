@@ -30,7 +30,8 @@ button::before{
     z-index: -1;
 }
 button:hover{
-    animation: wiggle 0.5s;
+    animation: wiggle 1s;
+    filter: url('#liquid');
 }
 button:hover::before{
     background: radial-gradient( rgba(66, 0, 255, .85)50%, rgba(210,110,210,.85));
