@@ -20,6 +20,11 @@ window.addEventListener('mousemove', function(event){
     mouse.x = event.x;
     mouse.y = event.y;
 });
+window.addEventListener('mouseout', function(){
+        mouse.x = undefined;
+        mouse.y = undefined;
+    }
+);
 
 let gradient = ctx.createLinearGradient(0,0,canvas.width,0);
 gradient.addColorStop('0','rgba(25,0,0,1)');

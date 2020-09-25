@@ -11,13 +11,14 @@ button{
     font-family: Impact;
     font-size: 40px;
     background: none;
-    color: azure;
+    color: black;
     border: none;
     width: 250px;
     height: 80px;
     border-radius: 10px;
     outline: none;
     position: relative;
+    filter: url('#liquid');
 }
 button::before{
     content: '';
@@ -30,8 +31,8 @@ button::before{
     z-index: -1;
 }
 button:hover{
-    animation: wiggle 1s;
-    filter: url('#liquid');
+    animation: wiggle .5s;
+
 }
 button:hover::before{
     background: radial-gradient( rgba(66, 0, 255, .85)50%, rgba(210,110,210,.85));
