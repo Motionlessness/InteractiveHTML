@@ -1,21 +1,40 @@
 .card{
-
+    width: 500px;
     position: absolute;
-    border: 1px solid black;
-    background-color: rgba(66, 0, 255, .50);
-    box-shadow: 0 4px 8px 0 rgba(66,0,255,.45);
-    transition: 0.2s;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: space-around;
 }
-.card:hover{
-    background-color: rgba(66, 0, 255, 1);
-    box-shadow: 0 8px 16px 0 rgba(66,0,255,1);
-
+button{
+    font-family: Impact;
+    font-size: 40px;
+    background: none;
+    color: azure;
+    border: none;
+    width: 250px;
+    height: 80px;
+    border-radius: 10px;
+    outline: none;
+    position: relative;
 }
-.container{
-    padding: 2 4;
+button::before{
+    content: '';
+    background: rgba(66, 0, 255, .5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+button:hover{
+    animation: wiggle 0.5s;
+}
+button:hover::before{
+    background: radial-gradient( rgba(66, 0, 255, .85)50%, rgba(210,110,210,.85));
+    filter: url('#wave');
 }
 #canvas1{
     position: absolute;
@@ -34,4 +53,19 @@ a:link{
 }
 a:visited{
     color: azure;
+}
+
+@keyframes wiggle {
+    0%{
+        transform: scaleY(1);
+    }
+    60%{
+        transform: scaleY(1.5);
+    }
+    80%{
+        transform: scaleY(0.9);
+    }
+    100%{
+        transform: scaleY(1);
+    }
 }

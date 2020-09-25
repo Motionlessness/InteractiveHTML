@@ -134,3 +134,24 @@ window.addEventListener('mouseout',
 
 init();
 animate();
+
+const button = document.querySelectorAll('button');
+const turbulence = document.querySelector('feTurbulence');
+let verticleFrequency = 0.001;
+turbulence.setAttribute('baseFrequency', verticleFrequency + '0.0001');
+
+const steps = 20;
+const interval = 25;
+
+button.forEach(function(button){
+    button.addEventListener('mouseover', function(){
+        verticleFrequency = 0.001;
+        for(let i=0; i < steps; i++){
+            setTimeout(function(){
+                verticleFrequency += 0.005;
+                turbulence.setAttribute('baseFrequency', verticleFrequency + ' ' + verticleFrequency);
+            }, i * interval);
+            
+        }
+    })
+});
